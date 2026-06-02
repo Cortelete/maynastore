@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
 interface ProfileProps {
@@ -21,27 +22,45 @@ export default function Profile({ onLogoClick }: ProfileProps) {
 
   return (
     <div className="flex flex-col items-center text-center w-full mb-1 sm:mb-2 z-10">
-      <motion.button
-        onClick={handleLogoClick}
-        whileHover={{ scale: 1.05 }}
-        animate={animateLogo ? { scale: 1.5, rotateY: 720, zIndex: 50, opacity: 0 } : { scale: 1, rotateY: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="relative w-16 h-16 sm:w-20 sm:h-20 mb-2 mx-auto outline-none focus-visible:ring-black/50"
-        aria-label="Sobre Nós"
-      >
-        {!imageError ? (
-          <img 
-            src="/logo.png" 
-            alt="Mayna Store Logo" 
-            onError={() => setImageError(true)}
-            className="w-full h-full object-contain"
-          />
-        ) : (
-          <div className="w-full h-full flex flex-col items-center justify-center text-black/50 text-xs p-2">
-            <span className="font-serif text-3xl font-bold mb-1">M</span>
-          </div>
-        )}
-      </motion.button>
+      <div className="relative mb-2 mx-auto">
+        <motion.button
+          onClick={handleLogoClick}
+          whileHover={{ scale: 1.05 }}
+          animate={animateLogo ? { scale: 1.5, rotateY: 720, zIndex: 50, opacity: 0 } : { scale: 1, rotateY: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="relative w-16 h-16 sm:w-20 sm:h-20 outline-none focus-visible:ring-black/50"
+          aria-label="Sobre Nós"
+        >
+          {!imageError ? (
+            <img 
+              src="/logo.png" 
+              alt="Mayna Store Logo" 
+              onError={() => setImageError(true)}
+              className="w-full h-full object-contain"
+            />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center text-black/50 text-xs p-2">
+              <span className="font-serif text-3xl font-bold mb-1">M</span>
+            </div>
+          )}
+        </motion.button>
+        
+        {/* Floating Instagram Button */}
+        <motion.a
+          href="https://www.instagram.com/maynaclub/"
+          target="_blank"
+          rel="noopener noreferrer"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, type: 'spring', stiffness: 200, damping: 10 }}
+          whileHover={{ scale: 1.1, rotate: 5 }}
+          whileTap={{ scale: 0.95 }}
+          className="absolute -bottom-1 -right-2 sm:-bottom-1 sm:-right-2 bg-gradient-to-tr from-orange-500 via-pink-500 to-purple-600 text-white p-1.5 sm:p-2 rounded-full shadow-md z-20 flex items-center justify-center"
+          aria-label="Instagram"
+        >
+          <Instagram className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+        </motion.a>
+      </div>
 
       <motion.div
         initial={{ opacity: 0, y: 10 }}

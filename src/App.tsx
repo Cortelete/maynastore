@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Instagram, MapPin, Star, Users, ShoppingCart } from 'lucide-react';
+import { MapPin, Star, Users, ShoppingCart } from 'lucide-react';
 import Layout from './components/Layout';
 import Profile from './components/Profile';
 import CustomLink from './components/CustomLink';
@@ -36,13 +36,6 @@ export default function App() {
             icon={Users} 
             onClick={() => setActiveModal('vip')} 
             delay={0.4}
-          />
-          <CustomLink 
-            title="Instagram" 
-            icon={Instagram} 
-            href="https://www.instagram.com/maynaclub/" 
-            delay={0.5}
-            brandColor="from-purple-600 via-pink-500 to-orange-500"
           />
           <CustomLink 
             title="Contato do WhatsApp" 
