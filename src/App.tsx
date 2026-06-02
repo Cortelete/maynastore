@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Star, Users, ShoppingCart } from 'lucide-react';
+import { MapPin, Star, Users, ShoppingCart, Crown } from 'lucide-react';
 import Layout from './components/Layout';
 import Profile from './components/Profile';
 import CustomLink from './components/CustomLink';
@@ -32,13 +32,13 @@ export default function App() {
             delay={0.3}
           />
           <CustomLink 
-            title="Grupo VIP" 
-            icon={Users} 
+            title="VENHA SER VIP" 
+            icon={Crown} 
             onClick={() => setActiveModal('vip')} 
             delay={0.4}
           />
           <CustomLink 
-            title="Contato do WhatsApp" 
+            title="Fale Conosco" 
             icon={WhatsAppIcon} 
             onClick={() => setActiveModal('buy')} 
             delay={0.6}
@@ -50,7 +50,7 @@ export default function App() {
             delay={0.7}
           />
           <CustomLink 
-            title="Avaliação" 
+            title="Avalie-nos" 
             icon={Star} 
             onClick={() => setActiveModal('rating')} 
             delay={0.8}

@@ -14,13 +14,18 @@ export default function RatingModal({ isOpen, onClose }: RatingModalProps) {
   const [showFeedback, setShowFeedback] = useState(false);
   const [feedback, setFeedback] = useState('');
 
-  const handleRating = (rate: number) => {
+  const handleRating = (rate: number, isLink: boolean = false) => {
     setRating(rate);
-    if (rate === 5) {
-      window.open('https://search.google.com/local/writereview?placeid=ChIJyWXsXeYj6JQRKGx25982WWQ', '_blank');
-      onClose();
+    if (!isLink) {
+      if (rate === 5) {
+        // Fallback for any non-link invocations, though 5-star is handled by the a-tag now
+        window.open('https://search.google.com/local/writereview?placeid=ChIJyWXsXeYj6JQRKGx25982WWQ', '_blank', 'noopener,noreferrer');
+        onClose();
+      } else {
+        setShowFeedback(true);
+      }
     } else {
-      setShowFeedback(true);
+      onClose(); // Just close the modal, the a-tag will handle the navigation
     }
   };
 
@@ -49,14 +54,8 @@ export default function RatingModal({ isOpen, onClose }: RatingModalProps) {
             </p>
             
             <div className="flex space-x-1 sm:space-x-2">
-              {[1, 2, 3, 4, 5].map((star) => (
-                <button
-                  key={star}
-                  onMouseEnter={() => setHoveredRating(star)}
-                  onMouseLeave={() => setHoveredRating(0)}
-                  onClick={() => handleRating(star)}
-                  className="p-1 transition-transform hover:scale-110 focus:outline-none"
-                >
+              {[1, 2, 3, 4, 5].map((star) => {
+                const starIcon = (
                   <Star 
                     className={`w-8 h-8 sm:w-10 sm:h-10 transition-colors duration-200 ${
                       (hoveredRating || rating) >= star 
@@ -65,8 +64,37 @@ export default function RatingModal({ isOpen, onClose }: RatingModalProps) {
                     }`} 
                     strokeWidth={1}
                   />
-                </button>
-              ))}
+                );
+
+                if (star === 5) {
+                  return (
+                    <a
+                      key={star}
+                      href="https://search.google.com/local/writereview?placeid=ChIJyWXsXeYj6JQRKGx25982WWQ"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onMouseEnter={() => setHoveredRating(star)}
+                      onMouseLeave={() => setHoveredRating(0)}
+                      onClick={() => handleRating(star, true)}
+                      className="p-1 transition-transform hover:scale-110 focus:outline-none"
+                    >
+                      {starIcon}
+                    </a>
+                  );
+                }
+
+                return (
+                  <button
+                    key={star}
+                    onMouseEnter={() => setHoveredRating(star)}
+                    onMouseLeave={() => setHoveredRating(0)}
+                    onClick={() => handleRating(star)}
+                    className="p-1 transition-transform hover:scale-110 focus:outline-none"
+                  >
+                    {starIcon}
+                  </button>
+                );
+              })}
             </div>
             <p className="text-[10px] sm:text-xs text-gray-500 mt-4 uppercase tracking-widest font-bold">
               {(hoveredRating || rating) > 0 ? `${hoveredRating || rating} Estrela${(hoveredRating || rating) > 1 ? 's' : ''}` : 'Selecione as estrelas'}
