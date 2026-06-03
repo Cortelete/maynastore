@@ -50,7 +50,7 @@ export default function App() {
             delay={0.7}
           />
           <CustomLink 
-            title="Avalie-nos" 
+            title="Venha nos avaliar no Google" 
             icon={Star} 
             onClick={() => setActiveModal('rating')} 
             delay={0.8}
