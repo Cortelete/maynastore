@@ -34,7 +34,7 @@ export default function Profile({ onLogoClick }: ProfileProps) {
           {!imageError ? (
             <img 
               src="/logo.png" 
-              alt="Mayna Store Logo" 
+              alt="Mayná Store Logo" 
               onError={() => setImageError(true)}
               className="w-full h-full object-contain"
             />
@@ -70,12 +70,12 @@ export default function Profile({ onLogoClick }: ProfileProps) {
       >
         <img 
           src="/logofonte.png" 
-          alt="Mayna Store" 
+          alt="Mayná Store" 
           className="w-full h-auto object-contain"
           onError={(e) => {
             // Fallback if image not found
             e.currentTarget.style.display = 'none';
-            e.currentTarget.parentElement!.innerHTML = '<h1 class="font-serif text-2xl font-bold text-black tracking-wider">Mayna Store</h1>';
+            e.currentTarget.parentElement!.innerHTML = '<h1 class="font-serif text-2xl font-bold text-black tracking-wider">Mayná Store</h1>';
           }}
         />
       </motion.div>

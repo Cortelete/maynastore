@@ -15,7 +15,7 @@ export default function DeveloperModal({ isOpen, onClose }: DeveloperModalProps)
     e.preventDefault();
     if (!name.trim()) return;
 
-    const message = `Olá! Meu nome é *${name}*.\n\nVi o link da *Mayna Store* e quero um site igual!`;
+    const message = `Olá! Meu nome é *${name}*.\n\nVi o link da *Mayná Store* e quero um site igual!`;
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/5541988710303?text=${encodedMessage}`;
     

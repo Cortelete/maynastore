@@ -12,7 +12,7 @@ export default function LocationModal({ isOpen, onClose }: LocationModalProps) {
       <div className="flex flex-col items-center text-center space-y-5">
         
         <div className="text-gray-700 space-y-1">
-          <p className="font-serif text-lg text-black font-bold">Mayna Store</p>
+          <p className="font-serif text-lg text-black font-bold">Mayná Store</p>
           <p className="text-sm">Rua das Camélias 127</p>
           <p className="text-sm">Carambeí - PR, 84145-000</p>
         </div>

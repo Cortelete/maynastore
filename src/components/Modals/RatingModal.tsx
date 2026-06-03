@@ -50,7 +50,7 @@ export default function RatingModal({ isOpen, onClose }: RatingModalProps) {
             className="flex flex-col items-center py-4"
           >
             <p className="text-gray-600 text-sm md:text-base text-center mb-6">
-              Como foi sua experiência com a Mayna Store?
+              Como foi sua experiência com a Mayná Store?
             </p>
             
             <div className="flex space-x-1 sm:space-x-2">
@@ -110,7 +110,7 @@ export default function RatingModal({ isOpen, onClose }: RatingModalProps) {
             method="POST"
             className="flex flex-col space-y-3 pt-2"
           >
-            <input type="hidden" name="_subject" value={`Feedback Mayna Store - ${rating} Estrelas`} />
+            <input type="hidden" name="_subject" value={`Feedback Mayná Store - ${rating} Estrelas`} />
             <input type="hidden" name="Estrelas" value={rating} />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_next" value={window.location.href} />
