@@ -39,8 +39,8 @@ export default function LocationModal({ isOpen, onClose }: LocationModalProps) {
           rel="noopener noreferrer"
           className="w-full bg-black hover:bg-gray-900 border border-transparent text-white font-medium py-3 rounded-xl transition-all flex items-center justify-center space-x-2 group"
         >
-          <MapPin className="w-4 h-4 text-white/70 group-hover:text-white" />
-          <span>Abrir no App de Mapas</span>
+          <span className="text-[13px] tracking-widest uppercase">Abrir no Mapa</span>
+          <MapPin className="w-4 h-4 text-white/70 group-hover:text-white" strokeWidth={1.5} />
         </a>
 
       </div>

@@ -132,9 +132,9 @@ export default function RatingModal({ isOpen, onClose }: RatingModalProps) {
             <button 
               type="submit"
               disabled={!feedback.trim()}
-              className="w-full bg-black text-white font-medium py-2.5 rounded-xl transition-all disabled:opacity-50"
+              className="w-full bg-black text-white py-3 rounded-xl transition-all disabled:opacity-50 group flex items-center justify-center space-x-2"
             >
-              Enviar Feedback
+              <span className="text-[13px] tracking-widest uppercase font-medium">Enviar Feedback</span>
             </button>
           </motion.form>
         )}

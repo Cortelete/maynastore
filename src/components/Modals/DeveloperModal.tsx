@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ModalWrapper from './ModalWrapper';
-import { Instagram, Send, Sparkles } from 'lucide-react';
-import { motion } from 'motion/react';
+import { Sparkles, ArrowRight, Instagram } from 'lucide-react';
 
 interface DeveloperModalProps {
   isOpen: boolean;
@@ -24,18 +23,18 @@ export default function DeveloperModal({ isOpen, onClose }: DeveloperModalProps)
   };
 
   return (
-    <ModalWrapper isOpen={isOpen} onClose={onClose} title="Desenvolvedor">
-      <div className="flex flex-col items-center py-2 space-y-4">
+    <ModalWrapper isOpen={isOpen} onClose={onClose} title="Criador">
+      <div className="flex flex-col items-center py-4 space-y-5">
         
-        <div className="text-center space-y-1">
-          <div className="inline-flex items-center justify-center p-2.5 bg-black/5 rounded-full mb-1">
-            <Sparkles className="w-6 h-6 text-black" />
+        <div className="text-center space-y-2">
+          <div className="inline-flex items-center justify-center p-3 bg-gray-50 rounded-full border border-gray-100 mb-2">
+            <Sparkles className="w-5 h-5 text-black" strokeWidth={1.5} />
           </div>
-          <h3 className="font-serif text-lg sm:text-xl font-bold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-gray-800 to-black">
+          <h3 className="font-serif text-lg sm:text-xl font-medium tracking-wider text-black">
             InteligenciArte.IA
           </h3>
-          <p className="text-[12px] sm:text-sm text-gray-600 max-w-[250px] mx-auto">
-            Criamos experiências digitais únicas e luxuosas para marcas que desejam se destacar.
+          <p className="text-[13px] text-gray-500 max-w-[240px] mx-auto leading-relaxed">
+            Criamos experiências digitais elegantes para marcas exclusivas.
           </p>
         </div>
 
@@ -43,21 +42,17 @@ export default function DeveloperModal({ isOpen, onClose }: DeveloperModalProps)
           href="https://www.instagram.com/inteligenciarte.ia/"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 p-[1px] rounded-xl hover:scale-[1.02] transition-transform"
+          className="w-full flex items-center justify-center space-x-2 bg-white border border-gray-200 hover:border-black/20 text-black py-3 rounded-xl hover:bg-gray-50 transition-all font-medium text-[13px]"
         >
-          <div className="flex items-center justify-center space-x-2 bg-white py-2.5 rounded-xl w-full h-full">
-            <Instagram className="w-4 h-4 text-black" />
-            <span className="text-[13px] sm:text-sm text-black font-medium">Siga no Instagram</span>
-          </div>
+          <Instagram className="w-4 h-4" strokeWidth={1.5} />
+          <span>Instagram</span>
         </a>
 
-        <div className="w-full h-px bg-black/10 relative my-1">
-          <span className="absolute left-1/2 -top-2.5 w-8 -ml-4 bg-white text-center text-[10px] sm:text-xs text-gray-400 font-serif italic">ou</span>
-        </div>
+        <div className="w-4 h-px bg-gray-200 my-2" />
 
         <form onSubmit={handleWhatsApp} className="w-full flex flex-col space-y-3">
-          <p className="text-[13px] sm:text-sm font-medium text-black text-center">
-            Quer um site incrível como esse? Fale comigo! 🚀
+          <p className="text-[13px] text-gray-600 text-center mb-1">
+            Ter um site como este? Fale comigo.
           </p>
           
           <input 
@@ -65,17 +60,17 @@ export default function DeveloperModal({ isOpen, onClose }: DeveloperModalProps)
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-[13px] sm:text-sm text-black focus:outline-none focus:border-black/30 transition-colors placeholder:text-gray-400"
-            placeholder="Qual o seu nome?"
+            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[13px] text-black focus:outline-none focus:border-black transition-colors placeholder:text-gray-400"
+            placeholder="Seu nome"
           />
           
           <button 
             type="submit"
             disabled={!name.trim()}
-            className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-2.5 rounded-xl transition-all flex items-center justify-center space-x-2 disabled:opacity-50 group"
+            className="w-full bg-black hover:bg-gray-900 text-white font-medium py-3 rounded-xl transition-all flex items-center justify-center space-x-2 disabled:opacity-50 group"
           >
-            <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-            <span className="text-[13px] sm:text-sm">Falar no WhatsApp</span>
+            <span className="text-[13px] tracking-widest uppercase">Contato</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
           </button>
         </form>
 

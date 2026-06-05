@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import ModalWrapper from './ModalWrapper';
-import { Send } from 'lucide-react';
+import { Send, ArrowRight } from 'lucide-react';
 
 interface BuyModalProps {
   isOpen: boolean;
@@ -25,30 +25,30 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
 
   return (
     <ModalWrapper isOpen={isOpen} onClose={onClose} title="Atendimento">
-      <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
+      <form onSubmit={handleSubmit} className="flex flex-col space-y-5">
         
-        <p className="text-xs sm:text-sm text-gray-600 text-center mb-1">
-          Preencha as informações abaixo para falarmos pelo WhatsApp.
+        <p className="text-[13px] text-gray-500 text-center mb-1">
+          Como podemos ajudar você hoje?
         </p>
 
         <div className="space-y-1">
-          <label className="text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 font-bold">Seu Nome</label>
+          <label className="text-[10px] sm:text-[11px] uppercase tracking-widest text-gray-400 font-bold ml-1">Seu Nome</label>
           <input 
             type="text" 
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-black focus:outline-none focus:border-black/30 focus:bg-white transition-colors placeholder:text-gray-400"
+            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[13px] text-black focus:outline-none focus:border-black transition-colors placeholder:text-gray-300"
             placeholder="Como podemos te chamar?"
           />
         </div>
 
         <div className="space-y-1">
-          <label className="text-[10px] sm:text-xs uppercase tracking-widest text-gray-500 font-bold">Motivo do Contato</label>
+          <label className="text-[10px] sm:text-[11px] uppercase tracking-widest text-gray-400 font-bold ml-1">Motivo do Contato</label>
           <select 
             value={reason}
             onChange={(e) => setReason(e.target.value)}
-            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-black focus:outline-none focus:border-black/30 focus:bg-white transition-colors appearance-none"
+            className="w-full bg-white border border-gray-200 rounded-xl px-4 py-3 text-[13px] text-black focus:outline-none focus:border-black transition-colors appearance-none"
           >
             <option value="Dúvida sobre os looks">Dúvida sobre looks</option>
             <option value="Comprar uma peça">Comprar uma peça</option>
@@ -60,10 +60,10 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
         <button 
           type="submit"
           disabled={!name.trim()}
-          className="w-full mt-2 bg-black text-white font-medium py-3 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed group"
+          className="w-full mt-2 bg-black hover:bg-gray-900 text-white font-medium py-3 rounded-xl transition-all flex items-center justify-center space-x-2 disabled:opacity-50 group"
         >
-          <span>Iniciar Atendimento</span>
-          <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          <span className="text-[13px] tracking-widest uppercase">Iniciar Conversa</span>
+          <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" strokeWidth={1.5} />
         </button>
 
       </form>

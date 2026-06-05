@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { MapPin, Star, Users, ShoppingCart, Crown } from 'lucide-react';
+import { MapPin, Star, Users, ShoppingBag, Crown } from 'lucide-react';
 import Layout from './components/Layout';
 import Profile from './components/Profile';
 import CustomLink from './components/CustomLink';
@@ -11,6 +11,7 @@ import LocationModal from './components/Modals/LocationModal';
 import RatingModal from './components/Modals/RatingModal';
 import DeveloperModal from './components/Modals/DeveloperModal';
 import VipModal from './components/Modals/VipModal';
+import ComingSoonModal from './components/Modals/ComingSoonModal';
 
 import { WhatsAppIcon } from './components/Icons/WhatsAppIcon';
 
@@ -26,25 +27,25 @@ export default function App() {
         
         <div className="w-full space-y-1.5 sm:space-y-2">
           <CustomLink 
-            title="COMPRE PELO SITE" 
-            icon={ShoppingCart} 
-            href="https://maynastore.com.br" 
+            title="COMPRAR NO SITE" 
+            icon={ShoppingBag} 
+            onClick={() => setActiveModal('comingSoon')} 
             delay={0.3}
           />
           <CustomLink 
-            title="VENHA SER VIP" 
+            title="CLUBE VIP" 
             icon={Crown} 
             onClick={() => setActiveModal('vip')} 
             delay={0.4}
           />
           <CustomLink 
-            title="Fale Conosco" 
+            title="FALE CONOSCO" 
             icon={WhatsAppIcon} 
             onClick={() => setActiveModal('buy')} 
             delay={0.6}
           />
           <CustomLink 
-            title="Nossa Loja Física" 
+            title="NOSSA LOJA FÍSICA" 
             icon={MapPin} 
             onClick={() => setActiveModal('location')} 
             delay={0.7}
@@ -67,6 +68,7 @@ export default function App() {
       <RatingModal isOpen={activeModal === 'rating'} onClose={closeModal} />
       <DeveloperModal isOpen={activeModal === 'developer'} onClose={closeModal} />
       <VipModal isOpen={activeModal === 'vip'} onClose={closeModal} />
+      <ComingSoonModal isOpen={activeModal === 'comingSoon'} onClose={closeModal} />
     </Layout>
   );
 }
